@@ -9,7 +9,7 @@ class Settings:
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Optional: for higher rate limits
     
     # AI API
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     
     # App settings
     APP_NAME = "GitHub Repository Analyzer"

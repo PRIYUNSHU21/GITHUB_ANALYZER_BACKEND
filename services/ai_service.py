@@ -1,29 +1,62 @@
-import httpx
 import asyncio
-from datetime import datetime
-from config.settings import settings
-from typing import Optional
 import logging
+from datetime import datetime
+from typing import Dict, Any, Optional
+from groq import Groq
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 
 class AIService:
     def __init__(self):
-        self.api_key = settings.GEMINI_API_KEY
-        self.base_url = "https://generativelanguage.googleapis.com/v1beta"
-        self.last_api_call = 0  # Track last API call time for rate limiting
+        self.client = Groq(api_key=settings.GROQ_API_KEY)
+        self.model_name = "llama-3.1-8b-instant"
+        self.max_retries = 3
         
     def is_available(self) -> bool:
         """Check if AI service is available"""
-        return bool(self.api_key and self.api_key != "your_gemini_api_key_here")
-    
+        return bool(settings.GROQ_API_KEY and settings.GROQ_API_KEY != "your_groq_api_key_here")
+        
+    async def _call_groq_api(self, prompt: str) -> str:
+        """Make API call to Groq with retries and error handling"""
+        for attempt in range(self.max_retries):
+            try:
+                # Add delay between attempts to avoid rate limiting
+                if attempt > 0:
+                    await asyncio.sleep(2 ** attempt)  # Exponential backoff
+                
+                completion = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
+                    temperature=0.7,
+                    max_tokens=1000,
+                    top_p=1,
+                    stream=False,
+                    stop=None
+                )
+                
+                return completion.choices[0].message.content
+                
+            except Exception as e:
+                logger.warning(f"Groq API attempt {attempt + 1} failed: {str(e)}")
+                if attempt == self.max_retries - 1:
+                    logger.error(f"All Groq API attempts failed: {str(e)}")
+                    return f"AI service unavailable after retries"
+                    
+        return "AI service temporarily unavailable"
+
     async def generate_three_insights(self, repo_data: dict, readme_content: str, 
                                     language_data: dict, contributor_data: dict) -> dict:
         """Generate three distinct AI insights as required"""
         if not self.is_available():
             return {
                 "repository_summary": {
-                    "content": "AI service not configured. Please add GEMINI_API_KEY to .env file.",
+                    "content": "AI service not configured. Please add GROQ_API_KEY to environment variables.",
                     "generated_at": datetime.now().isoformat()
                 },
                 "language_analysis": {
@@ -69,149 +102,119 @@ class AIService:
             }
         except Exception as e:
             logger.error(f"Error generating AI insights: {str(e)}")
-            # Return meaningful fallback responses instead of error messages
+            # Return meaningful fallback responses based on actual data
+            repo_name = repo_data.get('name', 'Unknown repository')
+            repo_desc = repo_data.get('description', 'A GitHub repository')
+            primary_lang = repo_data.get('language', 'Unknown')
+            stars = repo_data.get('stargazers_count', 0)
+            
+            # Get primary language from language data
+            languages = language_data.get('languages', {})
+            if languages:
+                main_lang = max(languages.keys(), key=lambda k: languages[k])
+            else:
+                main_lang = primary_lang
+                
+            total_contrib = contributor_data.get('total_contributors', 0)
+            active_contrib = contributor_data.get('active_contributors', 0)
+            
             return {
                 "repository_summary": {
-                    "content": f"Repository analysis: {repo_data.get('name', 'Unknown repository')} - {repo_data.get('description', 'A GitHub repository')[:100]}{'...' if len(repo_data.get('description', '')) > 100 else ''}",
+                    "content": f"• Repository: {repo_name} - {repo_desc[:100] if repo_desc else 'GitHub repository'}\n• Stars: {stars:,} | Language: {main_lang}\n• This appears to be a {main_lang} project with development focus",
                     "generated_at": datetime.now().isoformat()
                 },
                 "language_analysis": {
-                    "content": f"Technology stack: Primary language is {repo_data.get('language', 'Unknown')}. Language breakdown shows a {list(language_data.get('languages', {}).keys())[0] if language_data.get('languages') else 'mixed'}-focused project.",
+                    "content": f"• Primary Language: {main_lang}\n• Technology Focus: {'Web development' if main_lang in ['JavaScript', 'TypeScript'] else 'Software development'}\n• Language composition indicates modern development practices",
                     "generated_at": datetime.now().isoformat()
                 },
                 "contribution_patterns": {
-                    "content": f"Collaboration: This repository has {contributor_data.get('total_contributors', 0)} contributors with {contributor_data.get('active_contributors', 0)} active members, indicating {'healthy' if contributor_data.get('active_contributors', 0) > 5 else 'moderate'} community engagement.",
+                    "content": f"• Total Contributors: {total_contrib}\n• Active Contributors: {active_contrib}\n• Project Scale: {'Large open-source' if total_contrib > 50 else 'Medium-scale' if total_contrib > 10 else 'Small/Personal'} project",
                     "generated_at": datetime.now().isoformat()
                 }
             }
-    
+
     async def _generate_repository_summary(self, repo_data: dict, readme_content: str) -> str:
-        """Generate AI Repository Summary based on README and description"""
-        prompt = f"""
-Analyze this GitHub repository and provide a concise summary of its purpose and key features:
-
-Repository: {repo_data.get('name', 'Unknown')}
-Description: {repo_data.get('description', 'No description')}
-Stars: {repo_data.get('stargazers_count', 0)}
-Language: {repo_data.get('language', 'Unknown')}
-
-README Content: {readme_content[:1500] if readme_content != "README not available" else "No README available"}
-
-Provide a 2-3 sentence summary explaining what this repository does and its main purpose.
-"""
-        return await self._call_gemini_api(prompt)
-    
-    async def _generate_language_analysis(self, repo_data: dict, language_data: dict) -> str:
-        """Generate AI Language Analysis for technology stack insights"""
-        languages = language_data.get('languages', {})
-        main_language = repo_data.get('language', 'Unknown')
+        """Generate detailed repository summary with bullet points"""
+        repo_name = repo_data.get('name', 'Unknown')
+        description = repo_data.get('description', '')
+        stars = repo_data.get('stargazers_count', 0)
+        language = repo_data.get('language', 'Unknown')
+        topics = repo_data.get('topics', [])
         
         prompt = f"""
-Analyze the technology stack of this repository:
-
-Primary Language: {main_language}
-Language Breakdown: {languages}
-Repository Type: {repo_data.get('description', 'Unknown')}
-
-Provide insights about the technology stack. Is this a standard framework combination (like MERN, MEAN, etc.)? 
-What does the language composition tell us about the project's architecture? Keep it to 2-3 sentences.
-"""
-        return await self._call_gemini_api(prompt)
-    
-    async def _generate_contribution_patterns(self, repo_data: dict, contributor_data: dict) -> str:
-        """Generate AI Contribution Patterns analysis for collaboration health"""
-        total_contributors = contributor_data.get('total_contributors', 0)
-        active_contributors = contributor_data.get('active_contributors', 0)
-        top_contributors = contributor_data.get('top_contributors', [])
-        
-        prompt = f"""
-Analyze the collaboration health of this repository:
-
-Total Contributors: {total_contributors}
-Active Contributors (5+ commits): {active_contributors}
-Repository Age: {repo_data.get('created_at', 'Unknown')}
-Last Updated: {repo_data.get('updated_at', 'Unknown')}
-Top Contributors: {[c['username'] + f" ({c['commits']} commits)" for c in top_contributors[:3]]}
-
-Provide insights about the project's collaboration patterns. Is it maintained by a core team or community? 
-What does the contributor activity suggest about the project's health? Keep it to 2-3 sentences.
-"""
-        return await self._call_gemini_api(prompt)
-    
-    async def _call_gemini_api(self, prompt: str, max_retries: int = 3) -> str:
-        """Make API call to Gemini with retry logic for rate limiting"""
-        # Rate limiting: ensure at least 1 second between API calls
-        import time
-        current_time = time.time()
-        time_since_last_call = current_time - self.last_api_call
-        if time_since_last_call < 1.0:
-            sleep_time = 1.0 - time_since_last_call
-            await asyncio.sleep(sleep_time)
-        
-        self.last_api_call = time.time()
-        
-        for attempt in range(max_retries):
-            try:
-                async with httpx.AsyncClient(timeout=30.0) as client:
-                    response = await client.post(
-                        f"{self.base_url}/models/gemini-1.5-flash:generateContent",
-                        params={"key": self.api_key},
-                        json={
-                            "contents": [{
-                                "parts": [{"text": prompt}]
-                            }]
-                        },
-                        headers={"Content-Type": "application/json"}
-                    )
-                    
-                    if response.status_code == 200:
-                        result = response.json()
-                        return result["candidates"][0]["content"]["parts"][0]["text"]
-                    elif response.status_code == 429:  # Rate limit
-                        wait_time = (2 ** attempt) + 1  # Exponential backoff
-                        logger.warning(f"Rate limit hit, waiting {wait_time}s before retry {attempt + 1}/{max_retries}")
-                        await asyncio.sleep(wait_time)
-                        continue
-                    else:
-                        logger.error(f"API error {response.status_code}: {response.text}")
-                        return f"AI service error: {response.status_code}"
-                        
-            except httpx.TimeoutException:
-                logger.error(f"API timeout on attempt {attempt + 1}")
-                if attempt == max_retries - 1:
-                    return "AI service timeout"
-                await asyncio.sleep(2)
-                
-            except Exception as e:
-                logger.error(f"API call failed on attempt {attempt + 1}: {str(e)}")
-                if attempt == max_retries - 1:
-                    return f"AI service error: {str(e)}"
-                await asyncio.sleep(2)
-        
-        return "AI service unavailable after retries"
-    
-    def _create_summary_prompt(self, repo_data: dict, readme_content: Optional[str]) -> str:
-        """Create a prompt for repository summary"""
-        repo_name = repo_data.get("name", "Unknown")
-        description = repo_data.get("description", "No description available")
-        language = repo_data.get("language", "Unknown")
-        stars = repo_data.get("stargazers_count", 0)
-        
-        # Truncate README if too long
-        readme_snippet = ""
-        if readme_content and readme_content != "README not available":
-            readme_snippet = readme_content[:1000] + "..." if len(readme_content) > 1000 else readme_content
-        
-        prompt = f"""
-Analyze this GitHub repository and provide a concise, informative summary in 2-3 sentences:
+Analyze this GitHub repository and provide a detailed summary in bullet point format:
 
 Repository: {repo_name}
 Description: {description}
 Primary Language: {language}
-Stars: {stars}
+Stars: {stars:,}
+Topics: {', '.join(topics[:5]) if topics else 'None'}
+README snippet: {readme_content[:500] if readme_content else 'No README available'}
 
-{f"README Content: {readme_snippet}" if readme_snippet else ""}
+Provide a comprehensive repository summary with the following bullet points:
+• What this repository is (purpose and functionality)
+• Key features and capabilities 
+• Target audience or use cases
+• Notable achievements (if high stars/popularity)
+• Overall assessment of the project
 
-Please provide a clear, professional summary that explains what this repository does, its main purpose, and key features. Keep it under 100 words.
+Keep each bullet point detailed but concise. Focus on technical aspects and project significance.
 """
-        return prompt
+        
+        return await self._call_groq_api(prompt)
+
+    async def _generate_language_analysis(self, repo_data: dict, language_data: dict) -> str:
+        """Generate detailed language and technology analysis with bullet points"""
+        languages = language_data.get('languages', {})
+        primary_lang = repo_data.get('language', 'Unknown')
+        
+        prompt = f"""
+Analyze the technology stack and programming languages used in this repository:
+
+Primary Language: {primary_lang}
+Language Breakdown: {dict(list(languages.items())[:10]) if languages else 'No data'}
+
+Provide a detailed technical analysis with the following bullet points:
+• Technology Stack Overview (what the language choices indicate)
+• Development Focus (web, mobile, backend, data science, etc.)
+• Architecture Implications (based on language mix)
+• Modern Development Practices (type safety, frameworks, etc.)
+• Ecosystem and Tooling (what this tech stack enables)
+
+Focus on technical insights about the project's technological approach and development philosophy.
+Keep each point informative and specific to the language composition.
+"""
+        
+        return await self._call_groq_api(prompt)
+
+    async def _generate_contribution_patterns(self, repo_data: dict, contributor_data: dict) -> str:
+        """Generate detailed contribution and collaboration analysis with bullet points"""
+        total_contributors = contributor_data.get('total_contributors', 0)
+        active_contributors = contributor_data.get('active_contributors', 0)
+        top_contributors = contributor_data.get('top_contributors', [])
+        
+        # Calculate collaboration metrics
+        top_contrib_commits = sum([c.get('commits', 0) for c in top_contributors[:3]])
+        avg_commits_per_top = top_contrib_commits / 3 if len(top_contributors) >= 3 else 0
+        
+        prompt = f"""
+Analyze the collaboration and contribution patterns for this repository:
+
+Total Contributors: {total_contributors}
+Active Contributors: {active_contributors}
+Top Contributors: {len(top_contributors)}
+Top 3 Contributors Commits: {top_contrib_commits}
+Average Commits (Top 3): {avg_commits_per_top:.0f}
+
+Provide a detailed collaboration analysis with the following bullet points:
+• Project Scale and Community Size (what the numbers indicate)
+• Collaboration Health (active vs total contributor ratio)
+• Development Leadership (concentration of contributions)
+• Community Engagement Level (based on contributor patterns)
+• Project Maturity Assessment (what this contribution pattern suggests)
+
+Focus on insights about the development community, project governance, and collaboration dynamics.
+Make each point specific to the contribution data provided.
+"""
+        
+        return await self._call_groq_api(prompt)
