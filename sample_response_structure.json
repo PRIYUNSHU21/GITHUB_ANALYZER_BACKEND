@@ -1,0 +1,71 @@
+{
+  "owner": "facebook",
+  "repo": "react",
+  "stats": {
+    "stars": 228000,
+    "forks": 46500,
+    "open_issues": 600,
+    "license": "MIT"
+  },
+  "languages": {
+    "languages": {
+      "JavaScript": 65.2,
+      "TypeScript": 30.1,
+      "CSS": 3.5,
+      "HTML": 1.2
+    }
+  },
+  "commit_activity": {
+    "total_commits": 12000,
+    "last_30_days": 45,
+    "weekly_data": [
+      {
+        "week": "2024-07-01",
+        "commits": 25
+      },
+      {
+        "week": "2024-07-08",
+        "commits": 30
+      },
+      {
+        "week": "2024-07-15",
+        "commits": 28
+      },
+      "# ... 49 more weeks"
+    ]
+  },
+  "contributors": {
+    "total_contributors": 1650,
+    "active_contributors": 45,
+    "top_contributors": [
+      {
+        "username": "gaearon",
+        "commits": 1200,
+        "avatar_url": "https://avatars.githubusercontent.com/u/810438?v=4"
+      },
+      {
+        "username": "sebmarkbage",
+        "commits": 980,
+        "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4"
+      }
+    ]
+  },
+  "links": {
+    "repo_url": "https://github.com/facebook/react",
+    "owner_url": "https://github.com/facebook"
+  },
+  "ai_insights": {
+    "repository_summary": {
+      "content": "React is a popular JavaScript library for building user interfaces, developed by Facebook. It enables developers to create interactive web applications using a component-based architecture with virtual DOM for optimal performance.",
+      "generated_at": "2025-09-03T10:30:00.000000"
+    },
+    "language_analysis": {
+      "content": "This is a modern JavaScript ecosystem project with TypeScript integration, representing a well-structured library with excellent type safety and contemporary web development practices.",
+      "generated_at": "2025-09-03T10:30:00.000000"
+    },
+    "contribution_patterns": {
+      "content": "This repository shows healthy collaboration with 1650 total contributors and 45 active maintainers, indicating strong community engagement and sustainable development practices typical of major open-source projects.",
+      "generated_at": "2025-09-03T10:30:00.000000"
+    }
+  }
+}

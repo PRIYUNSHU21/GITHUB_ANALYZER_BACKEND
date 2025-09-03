@@ -1,0 +1,287 @@
+{
+  "owner": "facebook",
+  "repo": "react",
+  "stats": {
+    "stars": 238594,
+    "forks": 49249,
+    "open_issues": 1038,
+    "license": "MIT License"
+  },
+  "languages": {
+    "languages": {
+      "JavaScript": 67.41,
+      "TypeScript": 29.07,
+      "HTML": 1.5,
+      "CSS": 1.06,
+      "C++": 0.58,
+      "CoffeeScript": 0.24,
+      "C": 0.07,
+      "Shell": 0.06,
+      "Python": 0.0,
+      "Makefile": 0.0
+    }
+  },
+  "commit_activity": {
+    "total_commits": 1485,
+    "last_30_days": 100,
+    "weekly_data": [
+      {
+        "week": "2024-09-08",
+        "commits": 37
+      },
+      {
+        "week": "2024-09-15",
+        "commits": 36
+      },
+      {
+        "week": "2024-09-22",
+        "commits": 33
+      },
+      {
+        "week": "2024-09-29",
+        "commits": 19
+      },
+      {
+        "week": "2024-10-06",
+        "commits": 40
+      },
+      {
+        "week": "2024-10-13",
+        "commits": 36
+      },
+      {
+        "week": "2024-10-20",
+        "commits": 17
+      },
+      {
+        "week": "2024-10-27",
+        "commits": 11
+      },
+      {
+        "week": "2024-11-03",
+        "commits": 33
+      },
+      {
+        "week": "2024-11-10",
+        "commits": 32
+      },
+      {
+        "week": "2024-11-17",
+        "commits": 24
+      },
+      {
+        "week": "2024-11-24",
+        "commits": 1
+      },
+      {
+        "week": "2024-12-01",
+        "commits": 15
+      },
+      {
+        "week": "2024-12-08",
+        "commits": 41
+      },
+      {
+        "week": "2024-12-15",
+        "commits": 53
+      },
+      {
+        "week": "2024-12-22",
+        "commits": 6
+      },
+      {
+        "week": "2024-12-29",
+        "commits": 20
+      },
+      {
+        "week": "2025-01-05",
+        "commits": 38
+      },
+      {
+        "week": "2025-01-12",
+        "commits": 35
+      },
+      {
+        "week": "2025-01-19",
+        "commits": 18
+      },
+      {
+        "week": "2025-01-26",
+        "commits": 18
+      },
+      {
+        "week": "2025-02-02",
+        "commits": 22
+      },
+      {
+        "week": "2025-02-09",
+        "commits": 22
+      },
+      {
+        "week": "2025-02-16",
+        "commits": 24
+      },
+      {
+        "week": "2025-02-23",
+        "commits": 27
+      },
+      {
+        "week": "2025-03-02",
+        "commits": 19
+      },
+      {
+        "week": "2025-03-09",
+        "commits": 58
+      },
+      {
+        "week": "2025-03-16",
+        "commits": 55
+      },
+      {
+        "week": "2025-03-23",
+        "commits": 47
+      },
+      {
+        "week": "2025-03-30",
+        "commits": 22
+      },
+      {
+        "week": "2025-04-06",
+        "commits": 18
+      },
+      {
+        "week": "2025-04-13",
+        "commits": 22
+      },
+      {
+        "week": "2025-04-20",
+        "commits": 43
+      },
+      {
+        "week": "2025-04-27",
+        "commits": 40
+      },
+      {
+        "week": "2025-05-04",
+        "commits": 31
+      },
+      {
+        "week": "2025-05-11",
+        "commits": 22
+      },
+      {
+        "week": "2025-05-18",
+        "commits": 28
+      },
+      {
+        "week": "2025-05-25",
+        "commits": 8
+      },
+      {
+        "week": "2025-06-01",
+        "commits": 40
+      },
+      {
+        "week": "2025-06-08",
+        "commits": 20
+      },
+      {
+        "week": "2025-06-15",
+        "commits": 33
+      },
+      {
+        "week": "2025-06-22",
+        "commits": 34
+      },
+      {
+        "week": "2025-06-29",
+        "commits": 26
+      },
+      {
+        "week": "2025-07-06",
+        "commits": 37
+      },
+      {
+        "week": "2025-07-13",
+        "commits": 10
+      },
+      {
+        "week": "2025-07-20",
+        "commits": 37
+      },
+      {
+        "week": "2025-07-27",
+        "commits": 41
+      },
+      {
+        "week": "2025-08-03",
+        "commits": 24
+      },
+      {
+        "week": "2025-08-10",
+        "commits": 42
+      },
+      {
+        "week": "2025-08-17",
+        "commits": 37
+      },
+      {
+        "week": "2025-08-24",
+        "commits": 27
+      },
+      {
+        "week": "2025-08-31",
+        "commits": 6
+      }
+    ]
+  },
+  "contributors": {
+    "total_contributors": 100,
+    "active_contributors": 100,
+    "top_contributors": [
+      {
+        "username": "sebmarkbage",
+        "commits": 1810,
+        "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4"
+      },
+      {
+        "username": "zpao",
+        "commits": 1778,
+        "avatar_url": "https://avatars.githubusercontent.com/u/8445?v=4"
+      },
+      {
+        "username": "gaearon",
+        "commits": 1680,
+        "avatar_url": "https://avatars.githubusercontent.com/u/810438?v=4"
+      },
+      {
+        "username": "acdlite",
+        "commits": 1416,
+        "avatar_url": "https://avatars.githubusercontent.com/u/3624098?v=4"
+      },
+      {
+        "username": "sophiebits",
+        "commits": 1290,
+        "avatar_url": "https://avatars.githubusercontent.com/u/6820?v=4"
+      }
+    ]
+  },
+  "links": {
+    "repo_url": "https://github.com/facebook/react",
+    "owner_url": "https://github.com/facebook"
+  },
+  "ai_insights": {
+    "repository_summary": {
+      "content": "This GitHub repository contains the source code for React, a popular JavaScript library for building user interfaces.  Its core features include a declarative programming model and a component-based architecture, enabling developers to create efficient and reusable UI elements.  The project aims to simplify the process of building interactive and dynamic web and native applications.\n",
+      "generated_at": "2025-09-03T14:39:48.492231"
+    },
+    "language_analysis": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:39:48.492241"
+    },
+    "contribution_patterns": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:39:48.492243"
+    }
+  }
+}

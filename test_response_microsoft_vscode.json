@@ -1,0 +1,324 @@
+{
+  "owner": "microsoft",
+  "repo": "vscode",
+  "stats": {
+    "stars": 176356,
+    "forks": 34770,
+    "open_issues": 13306,
+    "license": "MIT License"
+  },
+  "languages": {
+    "languages": {
+      "TypeScript": 95.46,
+      "CSS": 1.4,
+      "JavaScript": 1.1,
+      "Rust": 0.65,
+      "HTML": 0.46,
+      "Inno Setup": 0.4,
+      "Scilab": 0.26,
+      "Shell": 0.14,
+      "Batchfile": 0.02,
+      "PowerShell": 0.02,
+      "Tree-sitter Query": 0.02,
+      "SCSS": 0.01,
+      "Groovy": 0.01,
+      "Cuda": 0.0,
+      "C++": 0.0,
+      "Makefile": 0.0,
+      "Python": 0.0,
+      "Scheme": 0.0,
+      "Perl": 0.0,
+      "Ruby": 0.0,
+      "TeX": 0.0,
+      "Objective-C": 0.0,
+      "Objective-C++": 0.0,
+      "Clojure": 0.0,
+      "Handlebars": 0.0,
+      "Less": 0.0,
+      "PHP": 0.0,
+      "Dockerfile": 0.0,
+      "Julia": 0.0,
+      "Jupyter Notebook": 0.0,
+      "Visual Basic .NET": 0.0,
+      "C#": 0.0,
+      "C": 0.0,
+      "Raku": 0.0,
+      "Pug": 0.0,
+      "Go": 0.0,
+      "F#": 0.0,
+      "Java": 0.0,
+      "CoffeeScript": 0.0,
+      "R": 0.0,
+      "Roff": 0.0,
+      "ShaderLab": 0.0,
+      "Dart": 0.0,
+      "Swift": 0.0,
+      "Lua": 0.0,
+      "HLSL": 0.0,
+      "Hack": 0.0
+    }
+  },
+  "commit_activity": {
+    "total_commits": 13095,
+    "last_30_days": 100,
+    "weekly_data": [
+      {
+        "week": "2024-09-08",
+        "commits": 280
+      },
+      {
+        "week": "2024-09-15",
+        "commits": 272
+      },
+      {
+        "week": "2024-09-22",
+        "commits": 312
+      },
+      {
+        "week": "2024-09-29",
+        "commits": 274
+      },
+      {
+        "week": "2024-10-06",
+        "commits": 138
+      },
+      {
+        "week": "2024-10-13",
+        "commits": 182
+      },
+      {
+        "week": "2024-10-20",
+        "commits": 215
+      },
+      {
+        "week": "2024-10-27",
+        "commits": 240
+      },
+      {
+        "week": "2024-11-03",
+        "commits": 238
+      },
+      {
+        "week": "2024-11-10",
+        "commits": 252
+      },
+      {
+        "week": "2024-11-17",
+        "commits": 250
+      },
+      {
+        "week": "2024-11-24",
+        "commits": 226
+      },
+      {
+        "week": "2024-12-01",
+        "commits": 218
+      },
+      {
+        "week": "2024-12-08",
+        "commits": 232
+      },
+      {
+        "week": "2024-12-15",
+        "commits": 276
+      },
+      {
+        "week": "2024-12-22",
+        "commits": 10
+      },
+      {
+        "week": "2024-12-29",
+        "commits": 12
+      },
+      {
+        "week": "2025-01-05",
+        "commits": 181
+      },
+      {
+        "week": "2025-01-12",
+        "commits": 193
+      },
+      {
+        "week": "2025-01-19",
+        "commits": 248
+      },
+      {
+        "week": "2025-01-26",
+        "commits": 250
+      },
+      {
+        "week": "2025-02-02",
+        "commits": 336
+      },
+      {
+        "week": "2025-02-09",
+        "commits": 290
+      },
+      {
+        "week": "2025-02-16",
+        "commits": 359
+      },
+      {
+        "week": "2025-02-23",
+        "commits": 323
+      },
+      {
+        "week": "2025-03-02",
+        "commits": 177
+      },
+      {
+        "week": "2025-03-09",
+        "commits": 296
+      },
+      {
+        "week": "2025-03-16",
+        "commits": 441
+      },
+      {
+        "week": "2025-03-23",
+        "commits": 327
+      },
+      {
+        "week": "2025-03-30",
+        "commits": 261
+      },
+      {
+        "week": "2025-04-06",
+        "commits": 239
+      },
+      {
+        "week": "2025-04-13",
+        "commits": 275
+      },
+      {
+        "week": "2025-04-20",
+        "commits": 283
+      },
+      {
+        "week": "2025-04-27",
+        "commits": 267
+      },
+      {
+        "week": "2025-05-04",
+        "commits": 264
+      },
+      {
+        "week": "2025-05-11",
+        "commits": 198
+      },
+      {
+        "week": "2025-05-18",
+        "commits": 223
+      },
+      {
+        "week": "2025-05-25",
+        "commits": 172
+      },
+      {
+        "week": "2025-06-01",
+        "commits": 328
+      },
+      {
+        "week": "2025-06-08",
+        "commits": 195
+      },
+      {
+        "week": "2025-06-15",
+        "commits": 138
+      },
+      {
+        "week": "2025-06-22",
+        "commits": 190
+      },
+      {
+        "week": "2025-06-29",
+        "commits": 277
+      },
+      {
+        "week": "2025-07-06",
+        "commits": 266
+      },
+      {
+        "week": "2025-07-13",
+        "commits": 381
+      },
+      {
+        "week": "2025-07-20",
+        "commits": 339
+      },
+      {
+        "week": "2025-07-27",
+        "commits": 255
+      },
+      {
+        "week": "2025-08-03",
+        "commits": 434
+      },
+      {
+        "week": "2025-08-10",
+        "commits": 320
+      },
+      {
+        "week": "2025-08-17",
+        "commits": 346
+      },
+      {
+        "week": "2025-08-24",
+        "commits": 288
+      },
+      {
+        "week": "2025-08-31",
+        "commits": 108
+      }
+    ]
+  },
+  "contributors": {
+    "total_contributors": 100,
+    "active_contributors": 100,
+    "top_contributors": [
+      {
+        "username": "bpasero",
+        "commits": 13741,
+        "avatar_url": "https://avatars.githubusercontent.com/u/900690?v=4"
+      },
+      {
+        "username": "jrieken",
+        "commits": 12259,
+        "avatar_url": "https://avatars.githubusercontent.com/u/1794099?v=4"
+      },
+      {
+        "username": "Tyriar",
+        "commits": 11610,
+        "avatar_url": "https://avatars.githubusercontent.com/u/2193314?v=4"
+      },
+      {
+        "username": "mjbvz",
+        "commits": 9071,
+        "avatar_url": "https://avatars.githubusercontent.com/u/12821956?v=4"
+      },
+      {
+        "username": "joaomoreno",
+        "commits": 8702,
+        "avatar_url": "https://avatars.githubusercontent.com/u/22350?v=4"
+      }
+    ]
+  },
+  "links": {
+    "repo_url": "https://github.com/microsoft/vscode",
+    "owner_url": "https://github.com/microsoft"
+  },
+  "ai_insights": {
+    "repository_summary": {
+      "content": "This GitHub repository, `vscode`, houses the open-source codebase for Visual Studio Code (VS Code), a popular code editor developed by Microsoft.  It serves as the collaborative development space for both Microsoft engineers and the community, encompassing code, issue tracking, and public roadmaps.  The repository is licensed under the MIT license, making the source code freely available.\n",
+      "generated_at": "2025-09-03T14:40:03.877880"
+    },
+    "language_analysis": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:40:03.877891"
+    },
+    "contribution_patterns": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:40:03.877894"
+    }
+  }
+}

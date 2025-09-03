@@ -1,0 +1,268 @@
+{
+  "owner": "octocat",
+  "repo": "Hello-World",
+  "stats": {
+    "stars": 3109,
+    "forks": 3601,
+    "open_issues": 1878,
+    "license": null
+  },
+  "languages": {
+    "languages": {
+      "Unknown": 100.0
+    }
+  },
+  "commit_activity": {
+    "total_commits": 0,
+    "last_30_days": 0,
+    "weekly_data": [
+      {
+        "week": "2024-09-08",
+        "commits": 0
+      },
+      {
+        "week": "2024-09-15",
+        "commits": 0
+      },
+      {
+        "week": "2024-09-22",
+        "commits": 0
+      },
+      {
+        "week": "2024-09-29",
+        "commits": 0
+      },
+      {
+        "week": "2024-10-06",
+        "commits": 0
+      },
+      {
+        "week": "2024-10-13",
+        "commits": 0
+      },
+      {
+        "week": "2024-10-20",
+        "commits": 0
+      },
+      {
+        "week": "2024-10-27",
+        "commits": 0
+      },
+      {
+        "week": "2024-11-03",
+        "commits": 0
+      },
+      {
+        "week": "2024-11-10",
+        "commits": 0
+      },
+      {
+        "week": "2024-11-17",
+        "commits": 0
+      },
+      {
+        "week": "2024-11-24",
+        "commits": 0
+      },
+      {
+        "week": "2024-12-01",
+        "commits": 0
+      },
+      {
+        "week": "2024-12-08",
+        "commits": 0
+      },
+      {
+        "week": "2024-12-15",
+        "commits": 0
+      },
+      {
+        "week": "2024-12-22",
+        "commits": 0
+      },
+      {
+        "week": "2024-12-29",
+        "commits": 0
+      },
+      {
+        "week": "2025-01-05",
+        "commits": 0
+      },
+      {
+        "week": "2025-01-12",
+        "commits": 0
+      },
+      {
+        "week": "2025-01-19",
+        "commits": 0
+      },
+      {
+        "week": "2025-01-26",
+        "commits": 0
+      },
+      {
+        "week": "2025-02-02",
+        "commits": 0
+      },
+      {
+        "week": "2025-02-09",
+        "commits": 0
+      },
+      {
+        "week": "2025-02-16",
+        "commits": 0
+      },
+      {
+        "week": "2025-02-23",
+        "commits": 0
+      },
+      {
+        "week": "2025-03-02",
+        "commits": 0
+      },
+      {
+        "week": "2025-03-09",
+        "commits": 0
+      },
+      {
+        "week": "2025-03-16",
+        "commits": 0
+      },
+      {
+        "week": "2025-03-23",
+        "commits": 0
+      },
+      {
+        "week": "2025-03-30",
+        "commits": 0
+      },
+      {
+        "week": "2025-04-06",
+        "commits": 0
+      },
+      {
+        "week": "2025-04-13",
+        "commits": 0
+      },
+      {
+        "week": "2025-04-20",
+        "commits": 0
+      },
+      {
+        "week": "2025-04-27",
+        "commits": 0
+      },
+      {
+        "week": "2025-05-04",
+        "commits": 0
+      },
+      {
+        "week": "2025-05-11",
+        "commits": 0
+      },
+      {
+        "week": "2025-05-18",
+        "commits": 0
+      },
+      {
+        "week": "2025-05-25",
+        "commits": 0
+      },
+      {
+        "week": "2025-06-01",
+        "commits": 0
+      },
+      {
+        "week": "2025-06-08",
+        "commits": 0
+      },
+      {
+        "week": "2025-06-15",
+        "commits": 0
+      },
+      {
+        "week": "2025-06-22",
+        "commits": 0
+      },
+      {
+        "week": "2025-06-29",
+        "commits": 0
+      },
+      {
+        "week": "2025-07-06",
+        "commits": 0
+      },
+      {
+        "week": "2025-07-13",
+        "commits": 0
+      },
+      {
+        "week": "2025-07-20",
+        "commits": 0
+      },
+      {
+        "week": "2025-07-27",
+        "commits": 0
+      },
+      {
+        "week": "2025-08-03",
+        "commits": 0
+      },
+      {
+        "week": "2025-08-10",
+        "commits": 0
+      },
+      {
+        "week": "2025-08-17",
+        "commits": 0
+      },
+      {
+        "week": "2025-08-24",
+        "commits": 0
+      },
+      {
+        "week": "2025-08-31",
+        "commits": 0
+      }
+    ]
+  },
+  "contributors": {
+    "total_contributors": 3,
+    "active_contributors": 0,
+    "top_contributors": [
+      {
+        "username": "Spaceghost",
+        "commits": 1,
+        "avatar_url": "https://avatars.githubusercontent.com/u/251370?v=4"
+      },
+      {
+        "username": "octocat",
+        "commits": 1,
+        "avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+      },
+      {
+        "username": "Cameron423698",
+        "commits": 1,
+        "avatar_url": "https://avatars.githubusercontent.com/u/94719050?v=4"
+      }
+    ]
+  },
+  "links": {
+    "repo_url": "https://github.com/octocat/Hello-World",
+    "owner_url": "https://github.com/octocat"
+  },
+  "ai_insights": {
+    "repository_summary": {
+      "content": "The \"Hello-World\" repository is a rudimentary project serving primarily as a placeholder or introductory example on GitHub.  Its minimal content (\"Hello World!\") signifies its purpose as a simple starting point for new users learning the platform.  The high star count suggests its popularity as a widely used example repository, possibly for learning or demonstrating basic GitHub functionality.\n",
+      "generated_at": "2025-09-03T14:40:16.763487"
+    },
+    "language_analysis": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:40:16.763494"
+    },
+    "contribution_patterns": {
+      "content": "AI service error: 429",
+      "generated_at": "2025-09-03T14:40:16.763495"
+    }
+  }
+}
