@@ -1,3 +1,4 @@
+# Minimal requirements for Render deployment
 fastapi
 uvicorn[standard]
 httpx
